@@ -3,81 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành Bảng Điểm</title>
+    <title>Bảng Quản Lý Món Ăn</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            padding: 20px;
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
         }
-        table {
-            border-collapse: collapse;
-            background-color: #ffffff;
-            font-size: 14px;
+
+        .table-container {
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 900px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 24px;
         }
-        th, td {
-            border: 1px solid #333333;
-            padding: 10px 15px;
+
+        .table-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
             text-align: left;
         }
+
         th {
-            background-color: #ffffff;
-            color: #0000ff;
-            text-align: center;
-            font-weight: bold;
+            background-color: #f8f9fa;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 14px 16px;
+            border-bottom: 2px solid #eaeaea;
         }
-        .text-center {
-            text-align: center;
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            vertical-align: middle;
         }
-        .bg-highlight {
-            background-color: #ffffe0;
-            font-weight: bold;
-            color: #008000; /* Thêm màu xanh cho chữ Đạt */
+
+        tr:hover {
+            background-color: #fcfcfc;
         }
-        .bold-text {
+
+        /* Định dạng cột hình ảnh/emoji */
+        .food-icon {
+            font-size: 24px;
+            background: #fff5f5;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        /* Nhãn trạng thái HOT */
+        .badge-hot {
+            background-color: #ff3b30;
+            color: white;
+            font-size: 10px;
             font-weight: bold;
-            color: #ff0000; /* Thêm màu đỏ cho chữ Không Đạt */
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Định dạng giá tiền */
+        .price {
+            font-weight: 600;
+            color: #ff3b30;
+        }
+
+        /* Định dạng đánh giá */
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .star {
+            color: #ffcc00;
+        }
+
+        .review-count {
+            color: #888;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
+<div class="table-container">
+    <div class="table-title">📋 Danh Sách Món Ngon Phổ Biến</div>
+    
     <table>
         <thead>
             <tr>
-                <th rowspan="2">Họ tên</th>
-                <th colspan="2">Điểm</th>
-                <th rowspan="2">Ghi chú</th>
-            </tr>
-            <tr>
-                <th>Lý thuyết</th>
-                <th>Thực hành</th>
+                <th style="width: 10%;">Hình ảnh</th>
+                <th style="width: 35%;">Tên món ăn</th>
+                <th style="width: 25%;">Giá bán</th>
+                <th style="width: 30%;">Đánh giá</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Nguyễn Văn A</td>
-                <td class="text-center">8.0</td>
-                <td class="text-center">9.0</td>
-                <td rowspan="2" class="text-center bg-highlight">Đạt</td>
+                <td><div class="food-icon">🍔</div></td>
+                <td><strong>Burger Bò Phô Mai</strong><span class="badge-hot">Hot</span></td>
+                <td><span class="price">45.000đ</span></td>
+                <td>
+                    <div class="rating">
+                        <span class="star">★</span> <span>4.8</span> <span class="review-count">(120 lượt)</span>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td>Trần Thị B</td>
-                <td class="text-center">7.5</td>
-                <td class="text-center">8.0</td>
+                <td><div class="food-icon">🍟</div></td>
+                <td><strong>Khoai Tây Chiên</strong></td>
+                <td><span class="price">25.000đ</span></td>
+                <td>
+                    <div class="rating">
+                        <span class="star">★</span> <span>4.7</span> <span class="review-count">(96 lượt)</span>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td>Lê Văn C</td>
-                <td class="text-center">5.0</td>
-                <td class="text-center">4.0</td>
-                <td class="text-center bold-text">Không Đạt</td>
+                <td><div class="food-icon">🍗</div></td>
+                <td><strong>Gà Rán Truyền Thống</strong></td>
+                <td><span class="price">35.000đ</span></td>
+                <td>
+                    <div class="rating">
+                        <span class="star">★</span> <span>4.9</span> <span class="review-count">(150 lượt)</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="food-icon">🍕</div></td>
+                <td><strong>Pizza Hải Sản</strong></td>
+                <td><span class="price">89.000đ</span></td>
+                <td>
+                    <div class="rating">
+                        <span class="star">★</span> <span>4.6</span> <span class="review-count">(75 lượt)</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="food-icon">🥤</div></td>
+                <td><strong>Coca Cola</strong></td>
+                <td><span class="price">15.000đ</span></td>
+                <td>
+                    <div class="rating">
+                        <span class="star">★</span> <span>4.7</span> <span class="review-count">(60 lượt)</span>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
+</div>
 
 </body>
 </html>
